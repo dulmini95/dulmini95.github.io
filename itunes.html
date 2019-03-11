@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>iTunes API Tutorial</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .slider .slides li img {
+            opacity: .7;
+        }
+
+        /* .slider .slides {
+            background-color: black;
+        } */
+
+        hr {
+            clear: both;
+        }
+
+        .slider {
+            height: 30000px;
+        }
+
+        #loading {
+            position: absolute;
+            z-index: 500;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: -100px;
+            /* Half the height */
+            margin-left: -100px;
+            /* Half the width */;
+            border-radius: 50%;
+        }
+
+        #error {
+            position: absolute;
+            z-index: 500;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: -100px;
+            /* Half the height */
+            margin-left: -100px;
+            /* Half the width */;
+            border-radius: 50%;
+        }
+
+
+    </style>
+    <link rel="shortcut icon" href="http://findicons.com/files/icons/2770/ios_7_icons/512/music.png">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <img id="loading" src="https://thumbs.gfycat.com/BlushingFlashyGlobefish-small.gif">
+    <img id="error" src="error.jpg">
+    <div class="slider">
+        <ul class="slides white" >
+
+
+        </ul>
+    </div>
+    <hr>
+  
+    <ul id="songs">
+
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
