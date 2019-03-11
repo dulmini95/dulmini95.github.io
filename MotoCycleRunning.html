@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://www.csc.lsu.edu/~qywang/CS6210/HTMLExercise/Homework2-example.html -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Motorcycle running</title>
+</head>
+
+<body>
+
+  <button id="start-button">Start</button>
+  <button id="speed-button">Go Faster!</button>
+  <button id="stop-button">Stop</button>
+  <div id="info"></div>
+
+  <img style="position:absolute; left: 0px; top: 80px;" src=" http://www.csc.lsu.edu/~qywang/CS6210/HTMLExercise/motorCycle.gif ">
+
+  <script>
+
+    document.getElementById('stop-button').disabled = true;
+    document.getElementById('speed-button').disabled = true;
+
+    var movePixels = 10;
+    var delayMs = 50;
+    var catTimer = null;
+
+    function motorCycleRunning() {
+      var img = document.getElementsByTagName('img')[0];
+      var currentLeft = parseInt(img.style.left);
+      img.style.left = (currentLeft + movePixels) + 'px';
+
+      if (currentLeft > (window.innerWidth - img.width)) {
+        img.style.left = '0px';
+      }
+    }
+    function startRunning() {
+      catTimer = window.setInterval(motorCycleRunning, delayMs);
+      document.getElementById('start-button').disabled = true;
+      document.getElementById('stop-button').disabled = false;
+      document.getElementById('speed-button').disabled = false;
+    }
+
+    function onStart(){
+      startRunning();
+    }
+    var startButton = document.getElementById('start-button');
+    startButton.addEventListener('click', onStart);
+
+    function onStop(){
+      window.clearInterval(catTimer);
+      document.getElementById('start-button').disabled = false;
+      document.getElementById('stop-button').disabled = true;
+    }
+    var stopButton = document.getElementById('stop-button');
+    stopButton.addEventListener('click' , onStop);
+
+    function onSpeed(){
+      movePixels += 5;
+      var speedUp = movePixels * (1000 / 50);
+      document.getElementById('info').innerHTML = 'Current speed: ' + speedUp + ' px/second';
+    }
+    var speedButton = document.getElementById('speed-button');
+    speedButton.addEventListener('click' , onSpeed);
+
+  </script>
+
+
+
+</body>
+
+</html>
